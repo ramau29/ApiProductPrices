@@ -1,6 +1,7 @@
 package com.exercise.ApiPrices.model.entity;
 
 
+import com.exercise.ApiPrices.model.dto.ProductPriceDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -43,4 +44,15 @@ public class Price {
 
     @Column(name = "currency")
     private String currency;
+
+    public ProductPriceDTO toDTO() {
+        return ProductPriceDTO.builder()
+                .price(this.getPrice())
+                .priceList(this.getPriceList())
+                .productId(this.getProductId())
+                .brandId(this.getBrandId())
+                .endDate(this.getEndDate())
+                .startDate(this.getStartDate())
+                .build();
+    }
 }

@@ -17,14 +17,12 @@ public class ProductPriceServiceImpl implements IProductPriceService {
 
     @Override
     public ProductPriceDTO findProductPrice(long brandId, long productId, LocalDateTime date) {
-        var product = repository.findProducts(brandId, productId, date).stream().findFirst().orElseThrow();
-        return ProductPriceDTO.builder()
-                .price(product.getPrice())
-                .priceList(product.getPriceList())
-                .productId(product.getProductId())
-                .brandId(product.getBrandId())
-                .endDate(product.getEndDate())
-                .startDate(product.getStartDate())
-                .build();
+        return repository.findProducts(brandId, productId, date).stream()
+                .findFirst()
+                .orElseThrow()
+                .toDTO();
     }
 }
+// E100 [The resource cannot be found] - NoSuchElementException - 500 Internal Server Error
+// E101 [The request cannot be fulfilled due to bad syntax.] - MethodArgumentTypeMismatchException - 400 Bad Request -
+// E102 [There is som problem with the database connection.] - DataAccessException -
