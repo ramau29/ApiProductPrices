@@ -1,12 +1,18 @@
 # Getting Started
 
-# Aplicación/servicio en SpringBoot que provea una endpoint rest de consulta
-# Utilizar una base de datos en memoria (tipo h2)
-# Uso de Flyway para migraciones de bases de datos.
-# Uso de advice para manejo de excepciones
-# Aplicar testing unitarios y de integración
+Aplicación/servicio en SpringBoot que provea una endpoint rest de consulta.
 
+Utilizar una base de datos en memoria (tipo h2).
 
+Uso de Flyway para migraciones de bases de datos.
+
+Uso de advice para manejo de excepciones.
+
+Aplicar testing unitarios y de integración.
+
+<br><br>
+
+---
 
 
 ### Reference Documentation
