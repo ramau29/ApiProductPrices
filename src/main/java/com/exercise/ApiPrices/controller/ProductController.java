@@ -1,7 +1,9 @@
 package com.exercise.ApiPrices.controller;
 
 import com.exercise.ApiPrices.model.dto.ProductPriceDTO;
+import com.exercise.ApiPrices.service.IProductPriceService;
 import com.exercise.ApiPrices.service.ProductPriceServiceImpl;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +16,7 @@ import java.time.LocalDateTime;
 @RequestMapping(path = "/ApiProduct")
 public class ProductController {
 
-    private ProductPriceServiceImpl service;
+    private IProductPriceService service;
 
     public ProductController(ProductPriceServiceImpl service) {
         this.service = service;
@@ -29,6 +31,8 @@ public class ProductController {
     public ProductPriceDTO getProductPrice(@RequestParam("brandId") long brandId,
                                            @RequestParam("prdId") long productId,
                                            @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime date) {
-        return  this.service.findProductPrice(brandId, productId, date);
+
+        ProductPriceDTO productPrice = this.service.findProductPrice(brandId, productId, date);
+        return productPrice;
     }
 }

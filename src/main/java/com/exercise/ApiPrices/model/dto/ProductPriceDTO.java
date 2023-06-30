@@ -3,9 +3,13 @@ package com.exercise.ApiPrices.model.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Data
 @Builder
 public class ProductPriceDTO {
 
